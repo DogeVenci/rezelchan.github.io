@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -346,8 +353,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/04/19/express-notebook/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/19/express-notebook/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/04/19/express-notebook/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -391,16 +397,34 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Chany
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/04/19/express-notebook/" title="express notebook">http://yoursite.com/2017/04/19/express-notebook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
           
-            <a href="/tags/express/" rel="tag"># express</a>
+            <a href="/tags/express/" rel="tag"><i class="fa fa-tag"></i> express</a>
           
         </div>
       
@@ -456,12 +480,9 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -747,26 +768,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://rezelchan.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/19/express-notebook/';
-          this.page.identifier = '2017/04/19/express-notebook/';
-          this.page.title = 'express notebook';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://rezelchan.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -782,8 +783,49 @@
 
 
 
+  
 
 
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ReZELChan',
+            repo: 'Gitment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '55df3cf8aa6708857d2cd9fbf7f6c0a27a0c12b3',
+            
+                client_id: '58f53872df64d02f7a9c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
@@ -1150,8 +1192,9 @@
 const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
 (function(){
   if((typeof(device) != 'undefined') && (device.mobile())){
-    document.getElementById("live2dcanvas").style.width = '75px';
-    document.getElementById("live2dcanvas").style.height = '150px';
+    var trElement = document.getElementById('hexo-helper-live2d');
+    trElement.parentNode.removeChild(trElement);
+    return;
   }else
     if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
   loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/koharu.model.json", 0.5);});

@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -578,14 +585,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://rezelchan.disqus.com/count.js" async></script>
-    
-
-    
-
-  
-
 
 
 
@@ -601,8 +600,25 @@
 
 
 
+  
 
 
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
 
 
 
@@ -969,8 +985,9 @@
 const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
 (function(){
   if((typeof(device) != 'undefined') && (device.mobile())){
-    document.getElementById("live2dcanvas").style.width = '75px';
-    document.getElementById("live2dcanvas").style.height = '150px';
+    var trElement = document.getElementById('hexo-helper-live2d');
+    trElement.parentNode.removeChild(trElement);
+    return;
   }else
     if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
   loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/koharu.model.json", 0.5);});
