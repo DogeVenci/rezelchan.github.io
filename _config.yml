@@ -68,6 +68,7 @@ theme: next
 live2d:
   model: koharu
   position: left
+  mobileShow: false
 
 admin:
   username: rezelchan
